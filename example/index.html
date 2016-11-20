@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/white.css" id="theme">
 
+  <style media="screen">
+    #demo-slide h2{
+      transition: 1s
+    }
+  </style>
 </head>
 
 <body>
@@ -21,6 +26,12 @@
     <div class="slides">
       <section>
         <h1>Slide Builder</h1>
+      </section>
+      <section id="demo-slide">
+        <h2>[scripted]</h2>
+      </section>
+      <section>
+        <h2>Third slide</h2>
       </section>
     </div>
   </div>
@@ -33,8 +44,45 @@
 
     Reveal.initialize({
       center: true,
-      transition: 'slide',
-      dependencies: [ ]
+      transition: 'convex',
+      transitionSpeed: 'slow',
+      history: true,
+      dependencies: [
+        { src: '../slide-builder.js', callback: function(){
+
+          var element = document.querySelector('#demo-slide')
+          var heading = element.firstElementChild
+
+          var slide = new SlideBuilder(element)
+
+          // callbacks for when the slide is loaded/hidden
+          slide.addEventListener('shown', function(){
+            heading.innerText = 'example!'
+          })
+          slide.addEventListener('hidden', function(){
+            heading.innerText = 'done' // visible in overview
+            heading.style.transform = ''
+          })
+
+
+          // define fragment functions
+          slide.fragments([
+            function() {
+              heading.innerText =
+              heading.style.transform = 'scale(2) rotate(45deg)'
+            },
+            function() {
+              heading.innerText =
+              heading.style.transform = 'scale(-1) rotate(-25deg)'
+            },
+            function() {
+              heading.innerText =
+              heading.style.transform = 'scale(1) rotate(360deg)'
+            }
+          ])
+
+        }}
+      ]
     })
 
   </script>

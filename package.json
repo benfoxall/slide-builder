@@ -1,0 +1,26 @@
+{
+  "name": "reveal-builder",
+  "version": "1.0.0",
+  "description": "A tiny wrapper to make it easier to generate slides & fragments for reveal.js",
+  "main": "slide-builder.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benfoxall/slide-builder.git"
+  },
+  "keywords": [
+    "revealjs",
+    "reveal.js"
+  ],
+  "author": "Ben Foxall (@benjaminbenben)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benfoxall/slide-builder/issues"
+  },
+  "homepage": "https://github.com/benfoxall/slide-builder#readme"
+}

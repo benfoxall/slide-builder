@@ -55,31 +55,29 @@
 
           var slide = new SlideBuilder(element)
 
-          // callbacks for when the slide is loaded/hidden
-          slide.addEventListener('shown', function(){
-            heading.innerText = 'example!'
-          })
-          slide.addEventListener('hidden', function(){
-            heading.innerText = 'done' // visible in overview
-            heading.style.transform = ''
-          })
-
-
-          // define fragment functions
-          slide.fragments([
-            function() {
-              heading.innerText =
-              heading.style.transform = 'scale(2) rotate(45deg)'
-            },
-            function() {
-              heading.innerText =
-              heading.style.transform = 'scale(-1) rotate(-25deg)'
-            },
-            function() {
-              heading.innerText =
-              heading.style.transform = 'scale(1) rotate(360deg)'
-            }
-          ])
+          slide
+            .shown(function(){
+              heading.innerText = 'example!'
+              heading.style.transform = ''
+            })
+            .fragments([
+              function() {
+                heading.innerText =
+                heading.style.transform = 'scale(2) rotate(45deg)'
+              },
+              function() {
+                heading.innerText =
+                heading.style.transform = 'scale(-1) rotate(-25deg)'
+              },
+              function() {
+                heading.innerText =
+                heading.style.transform = 'scale(1) rotate(360deg)'
+              }
+            ])
+            .hidden(function(){
+              heading.innerText = 'done...'
+              heading.style.transform = ''
+            })
 
         }}
       ]

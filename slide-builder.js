@@ -65,8 +65,20 @@
       self.addFragment()
         .addEventListener('shown', fn);
     })
+
+    return this
   }
 
+
+  SlideBuilder.prototype.shown = function(fn) {
+    this.addEventListener('shown', fn)
+    return this
+  }
+
+  SlideBuilder.prototype.hidden = function(fn) {
+    this.addEventListener('hidden', fn)
+    return this
+  }
 
 
   global.SlideBuilder = SlideBuilder;

@@ -26,13 +26,13 @@
   });
 
 
-  function RevealBuilder(element){
+  function SlideBuilder(element){
     this.slide_el = element;
     // this.fragment_els = [];
   }
 
   // forward event listeners to slide element
-  RevealBuilder.prototype.addEventListener = function( type, listener, useCapture ) {
+  SlideBuilder.prototype.addEventListener = function( type, listener, useCapture ) {
     if( 'addEventListener' in window ) {
       this.slide_el.addEventListener( type, listener, useCapture );
     }
@@ -45,7 +45,7 @@
     return this;
   }
 
-  RevealBuilder.prototype.addFragment = function(text){
+  SlideBuilder.prototype.addFragment = function(text){
 
     var el = document.createElement('div');
     el.className = 'fragment';
@@ -59,7 +59,7 @@
   }
 
   // shorthand
-  RevealBuilder.prototype.fragments = function(callbacks){
+  SlideBuilder.prototype.fragments = function(callbacks){
     var self = this;
     callbacks.forEach(function(fn){
       self.addFragment()
@@ -69,6 +69,6 @@
 
 
 
-  global.RevealBuilder = RevealBuilder;
+  global.SlideBuilder = SlideBuilder;
 
 })(this, Reveal);

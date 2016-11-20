@@ -24,15 +24,33 @@
 
   <div class="reveal">
     <div class="slides">
+
+
       <section>
         <h1>Slide Builder</h1>
       </section>
+
+      <section>
+        <h2>script-based fragments</h2>
+      </section>
+
       <section id="demo-slide">
         <h2>[scripted]</h2>
       </section>
+
       <section>
-        <h2>Third slide</h2>
+        <h2>setup/teardown visualisations</h2>
       </section>
+
+      <section id="wow-graphics">
+        <!-- canvas inserted by script -->
+      </section>
+
+      <section>
+        <h3>github</h3>
+        <p><a href="https://github.com/benfoxall/slide-builder">benfoxall/slide-builder</a></p>
+      </section>
+
     </div>
   </div>
 
@@ -79,6 +97,14 @@
               heading.style.transform = ''
             })
 
+        }},
+
+        /*
+          alternatively, wrap in a different file (makes
+          it nice for modular slides)
+        */
+        { src: 'graphics-slide.js', callback: function(){
+          new GraphicsSlide('#wow-graphics')
         }}
       ]
     })

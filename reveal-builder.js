@@ -26,13 +26,13 @@
   });
 
 
-  function DynamicSlide(element){
+  function RevealBuilder(element){
     this.slide_el = element;
     // this.fragment_els = [];
   }
 
   // forward event listeners to slide element
-  DynamicSlide.prototype.addEventListener = function( type, listener, useCapture ) {
+  RevealBuilder.prototype.addEventListener = function( type, listener, useCapture ) {
     if( 'addEventListener' in window ) {
       this.slide_el.addEventListener( type, listener, useCapture );
     }
@@ -45,7 +45,7 @@
     return this;
   }
 
-  DynamicSlide.prototype.addFragment = function(text){
+  RevealBuilder.prototype.addFragment = function(text){
 
     var el = document.createElement('div');
     el.className = 'fragment';
@@ -59,7 +59,7 @@
   }
 
   // shorthand
-  DynamicSlide.prototype.fragments = function(callbacks){
+  RevealBuilder.prototype.fragments = function(callbacks){
     var self = this;
     callbacks.forEach(function(fn){
       self.addFragment()
@@ -69,6 +69,6 @@
 
 
 
-  global.DynamicSlide = DynamicSlide;
+  global.RevealBuilder = RevealBuilder;
 
 })(this, Reveal);

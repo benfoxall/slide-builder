@@ -1,5 +1,8 @@
-# slide-builder
-## for reveal.js
+# Slide Builder 
+
+## Scriptable reveal.js fragments
+
+### [Demo](http://benjaminbenben.com/slide-builder/example/)
 
 A tiny wrapper to make it easier to generate slides & fragments for reveal.js
 

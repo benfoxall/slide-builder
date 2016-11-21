@@ -17,6 +17,10 @@
     #demo-slide h2{
       transition: 1s
     }
+    .reveal pre {
+      box-shadow: none;
+      background: #f4f4f4;
+    }
   </style>
 </head>
 
@@ -31,15 +35,25 @@
       </section>
 
       <section>
-        <h2>script-based fragments</h2>
+        <h2>fragment functions</h2>
+        <pre><code>new SlideBuilder(el)
+  .fragments([
+    () => setText('Fragment One'),
+    () => setText('Fragment Two')
+  ])</code></pre>
+        <p class="fragment">works by appending empty <code>.fragment</code> elements and listening for relevant <code>fragmentshown</code> events</p>
       </section>
 
       <section id="demo-slide">
-        <h2>[scripted]</h2>
+        <h2>Example</h2>
       </section>
 
       <section>
-        <h2>setup/teardown visualisations</h2>
+        <h2>setup/teardown</h2>
+        <pre><code>new SlideBuilder(el)
+  .shown(initializeSlide)
+  .hidden(teardownSlide)</code></pre>
+        <p class="fragment">Useful for complex/heavy animations</p>
       </section>
 
       <section id="wow-graphics">
@@ -71,31 +85,22 @@
           var element = document.querySelector('#demo-slide')
           var heading = element.firstElementChild
 
-          var slide = new SlideBuilder(element)
+          new SlideBuilder(element)
 
-          slide
-            .shown(function(){
-              heading.innerText = 'example!'
-              heading.style.transform = ''
-            })
             .fragments([
               function() {
-                heading.innerText =
+                heading.innerText = 'Fragment one'
                 heading.style.transform = 'scale(2) rotate(45deg)'
               },
               function() {
-                heading.innerText =
+                heading.innerText = 'Fragment two'
                 heading.style.transform = 'scale(-1) rotate(-25deg)'
               },
               function() {
-                heading.innerText =
+                heading.innerText = 'Fragment three'
                 heading.style.transform = 'scale(1) rotate(360deg)'
               }
             ])
-            .hidden(function(){
-              heading.innerText = 'done...'
-              heading.style.transform = ''
-            })
 
         }},
 

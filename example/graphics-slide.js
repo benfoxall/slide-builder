@@ -80,7 +80,7 @@
     new SlideBuilder(this.element)
       .shown(setup)
       .fragments([
-        function() {tbs = 700},
+        function() {tbs = 350},
         function() {tbs = 70},
         function() {fillStyle = 2},
         function() {fillStyle = 3; tbs = 140}

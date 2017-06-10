@@ -9,7 +9,7 @@ A tiny wrapper to make it easier to generate slides & fragments for reveal.js
 ### Usage
 
 ```js
-new slideBuilder(slideElement)
+new SlideBuilder(slideElement)
   .shown(() => console.log("setup slide"))
   .fragments([
     () => console.log("fragment #1"),

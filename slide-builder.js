@@ -21,7 +21,6 @@
   });
 
   Reveal.addEventListener( 'ready', function( event ) {
-    if(event.currentSlide)  event.currentSlide.dispatchEvent(shown);
     currentSlide = event.currentSlide;
   });
 
@@ -29,6 +28,14 @@
   function SlideBuilder(element){
     this.slide_el = element;
     // this.fragment_els = [];
+
+    // if this is loaded dynamically, reveal might have loaded
+    // check to see if we're displayed
+    if(element === currentSlide) {
+      setTimeout(() =>{
+        element.dispatchEvent(shown)
+      }, 10)
+    }
   }
 
   // forward event listeners to slide element

@@ -1,6 +1,6 @@
 {
   "name": "slide-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny wrapper to make it easier to generate slides & fragments for reveal.js",
   "main": "slide-builder.js",
   "directories": {
